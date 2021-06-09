@@ -1,56 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import { AxiosCenter } from './AxiosCenterRequest';
+
 
 function App() {
+
+  const use=() => {
+    const token:string="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MjMyNTk5MTksImV4cCI6MTYyMzI2MzUxOSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidGVzdDEyQHRlc3QuY29tIn0.CCNRb0tnfMjOQTPRKL1Ap2NMpEJspNnq6bafBxgUs3ZqUSM-jhr_m_kLMJJpr6K7dduoZzVqIGSgJSmKc5EXvahA5Ke8AKHvLtHhFt9agjGoY9mdtim4eOgcOBziI6XF2VbrEoQjKSfXVJ4VtH6ktwlG1wlnm_MWAu5pPu9xJaV4baZYb3Ly-c1y1EDYIxfjNFcgGjzq8mbdZ0E5fY4mPym7VkfKtvP_DrX5vBW9BKPlozGIOp4iFfkpidjH4lJ_IN8vUJwcLKGxHDeHPnFx-pWJcknDz1H9ZVuhKveCVyRwlM2bRzmXmup-82oBY4ErbwXDTZ-QjVeq9taIL-gzE1YGAA"
+    AxiosCenter.getMembers(token)
+                  .then(Response=>{
+                    console.log(Response.data["hydra:member"])
+                  })
+                  .catch(error=>{
+                    console.log(error)
+                  })
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <button onClick={()=>use()}>click</button>
     </div>
   );
 }
