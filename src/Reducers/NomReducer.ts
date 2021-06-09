@@ -11,7 +11,7 @@ export const nomReducer =createSlice({
     name:"NOM_REDUCER",
     initialState,
     reducers:{
-        idByAmount:(state,action:PayloadAction<string>)=>{
+        nomByAmount:(state,action:PayloadAction<string>)=>{
             state.nom=action.payload
         }
     }
