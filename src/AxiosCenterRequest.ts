@@ -17,7 +17,7 @@ apiBackEnd.interceptors.response.use(
 
 class AxiosCenterRequest {
    getMembers(token:string){
-       return apiBackEnd.get<MembersInerface[]>("/members",{
+       return apiBackEnd.get<MembersInerface[]>("/members/2",{
         headers: {
             Authorization: "Bearer " + token,
           }

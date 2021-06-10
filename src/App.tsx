@@ -1,23 +1,24 @@
+import { useEffect} from 'react';
 import './App.css';
 import { AxiosCenter } from './AxiosCenterRequest';
-import Login from './login/Login';
+import Login from './Components/login/Login';
 
 
 function App() {
 
-  const use=() => {
-    const token:string="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MjMyNjkxMTQsImV4cCI6MTYyMzI3MjcxNCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidGVzdDEyQHRlc3QuY29tIn0.BYUTxYCln6VE2u144AiaPM7AdO6JQ5hXePot7n_3p02MfyZ-we6VZHLFBYp_51zwP--ZH4jkaxdrEM53eBt--U3BvifdbJm30BvPux8Dw6rHshsowRPj227y-0O8LB-MOPAzje65vEe6iIIPRSzxrzhjxm1zZQMTMBH7PRi-eAKNjDEF_sZ7XRhNHSt6aFVnEdeHXzSU4w6rQGPvAf9cyuFF8eWVl7pes7D_hsW2U15J0-T5W4t_yBQIAnkSno827BYSjbcqQ2-Gm1KbHYfO69V-LiMlsOsdRQ-vYSMtwSkjCCiwPRTEjfJUTublFHmusT7-M8sH3_6QGjzJDIenzPCqXA"
+  useEffect(() => {
+    const token:string="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MjMzMTEwMzMsImV4cCI6MTYyMzMxNDYzMywicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoidGVzdDEyQHRlc3QuY29tIn0.CyvXbCNHA7-Q6AZS4Fv21Ol85UaGAudZBOVdSm-LA0CAX0QuT51C2Xb_MNbFQI08bZor2Q4aq_APuyQ1qKBThdMDvfp0HxhNXBL62efF103dqmDCMd3LyKsZFYgv6axwhKHsPKgbBqvZAsO7E7UcyIVm1pBZgFrP9D1adXgs6mjFssSR9o2JF4sOPv12pkFCvczb58XEfUPvIl_enCQ66pOe9KUYTe6t1o9Y5weD_lQudAKdQTQayu70UvxEI-79Zu5BHQMLnn-sMDNMlCbzj0bN4T7n6B_2Tn3vXED7wa9MsWpDnT3RG1kKbzSezinqvv-F3g5SmyBW6qZJ-JTDs8EbsA"
     AxiosCenter.getMembers(token)
                   .then(Response=>{
-                    console.log(Response.data["hydra:member"])
+                    console.log(Response.data)
                   })
                   .catch(error=>{
                     console.log(error)
                   })
-  }
+  },[])
   return (
     <div className="App">
-      <button onClick={()=>use()}>click</button>
+      
       <Login/>
     </div>
   );

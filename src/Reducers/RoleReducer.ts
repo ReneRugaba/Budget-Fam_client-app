@@ -1,20 +1,19 @@
-import { createSlice, Action, PayloadAction } from '@reduxjs/toolkit';
-
-interface role{
-
+interface Role{
     role:string
 }
 
-const initialState:role={
+const initialState={
     role:""
 }
 
-export const roleReducer=createSlice({
-    name:"ROLE_REDUCER",
-    initialState,
-    reducers:{
-        roleByAmount(state,Action:PayloadAction<string>){
-            state.role=Action.payload
-        }
+export type ActionRole={type:"ADD_ROLE",role:string}
+
+export const roleReducer=(state:Role=initialState,action:ActionRole)=>{
+    switch(action.type){
+        case "ADD_ROLE":
+            return {...state,role:action.role}
+        default:
+            return state
     }
-})
+}
+

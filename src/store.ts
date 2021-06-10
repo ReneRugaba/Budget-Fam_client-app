@@ -1,26 +1,16 @@
-import { configureStore} from "@reduxjs/toolkit";
-import { idReducer } from "./Reducers/IdReducer";
-import { nomReducer } from "./Reducers/NomReducer";
-import { emailReducer } from './Reducers/EmailReducer';
-import { roleReducer } from './Reducers/RoleReducer';
+import {createStore,applyMiddleware} from "redux"
+import thunk from "redux-thunk";
+import { rootReducer } from "./Reducers/rootReducer";
 
 
 
 
-export const store= configureStore(
-   {
-       reducer:{
-            id:idReducer.reducer,
-            nom:nomReducer.reducer,
-            email:emailReducer.reducer,
-            role:roleReducer.reducer
-       }
-   }
-)
+
+export const store= createStore(rootReducer,applyMiddleware(thunk))
 
 
-export type RootState = ReturnType<typeof store.getState>
-export type useAppDispatch= typeof store.dispatch
+
+
 
   
  

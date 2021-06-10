@@ -1,22 +1,19 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { store } from "../store";
-
-interface id {
-    id:number
+interface Id{
+    id:number|undefined
 }
-const initialState:id={
+
+const initialState:Id={
     id:0
 }
-export const idReducer=createSlice({
-    name:"ID_REDUCER",
-    initialState,
-    reducers:{
-       
-        idByAmount:(state,action:PayloadAction<number>)=>{
-            state.id=action.payload
-        }
-    }
-})
+type ActionId={type:"ADD_ID",id:number}
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export const idReducer=(state:Id=initialState,action:ActionId)=>{
+    switch (action.type) {
+        case "ADD_ID":
+            
+            return {...state,id:action.id}
+    
+        default:
+            return state
+    }
+}
