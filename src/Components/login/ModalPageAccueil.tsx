@@ -1,7 +1,11 @@
 import React, {Dispatch,SetStateAction} from 'react'
+import { FormLogin } from './formLogin/FormLogin';
+import FormulaireSouscription from './formLogin/FormulaireSouscription';
+import { SubmitCenterValues } from './Login';
 
 export interface PropsStateHooks{
     form:number
+    submitCenter(values:SubmitCenterValues):void
     setForm:Dispatch<SetStateAction<{form:number}>>
 }
 
@@ -28,9 +32,9 @@ export default function ModalPageAccueil(props:PropsStateHooks) {
                 {/* body */}
                 <div className="relative p-6">
                     {props.form===1 ?
-                        "formulaire de connection"
+                        <FormLogin SubmitCenterValues={props.submitCenter}/>
                     :
-                    "formulaire de souscription"
+                        <FormulaireSouscription SubmitCenterValues={props.submitCenter}/>
                     }
                 </div>
                 {/* footer */}
