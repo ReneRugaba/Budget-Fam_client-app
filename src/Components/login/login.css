@@ -1,3 +1,6 @@
 body{
     background: #15202b;
+    background-image: url("../../Statics/savings-2789112.jpg");
+    background-size: cover;
+    height: 100vh;
 }

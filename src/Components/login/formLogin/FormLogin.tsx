@@ -4,7 +4,8 @@ import * as Yup from "yup";
 import { SubmitCenterValues } from './../Login';
 
 
-interface initialValues{
+
+export interface initialValuesLogin{
     email:string
     password:string
 }
@@ -12,9 +13,10 @@ export interface PropsState{
     SubmitCenterValues(values:SubmitCenterValues):void
 }
 export const FormLogin=(props:PropsState)=> {
-    const initialValuesForm:initialValues={email:"", password:""}
+    const initialValuesForm:initialValuesLogin={email:"", password:""}
+    
 
-    const submit=(values:initialValues)=>{
+    const submit=(values:initialValuesLogin)=>{
         props.SubmitCenterValues({
             action:"LOGIN",
             values:values
@@ -30,7 +32,7 @@ export const FormLogin=(props:PropsState)=> {
         initialValues={
             initialValuesForm
         }
-        onSubmit={(values:initialValues)=>submit(values)}
+        onSubmit={(values:initialValuesLogin)=>submit(values)}
         validationSchema={schemaValidation}
         >
        {({handleChange,handleBlur})=>(
@@ -57,7 +59,7 @@ export const FormLogin=(props:PropsState)=> {
                     onChange={handleChange} 
                     placeHolder="Password" 
                     className="bg-gray-200 font-bold appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
-                    type="text" 
+                    type="password" 
                     component={INPUTCustom}/>
            <div className="text-red-500 font-bold">
                 <ErrorMessage name="password"/>

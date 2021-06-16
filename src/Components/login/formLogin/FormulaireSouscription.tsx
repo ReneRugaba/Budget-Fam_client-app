@@ -5,7 +5,7 @@ import * as Yup from "yup"
 import { INPUTCustom } from '../../../shared/inputCustomForm';
 import { ErrorMessage } from 'formik';
 
-interface SubscribeInitialValues{
+export interface SubscribeInitialValues{
     nom:string
     prenom:string
     email:string 
@@ -27,7 +27,12 @@ export default function FormulaireSouscription(props:PropsState) {
         })
     }
 
-    const validationSchema=Yup.object().shape({})
+    const validationSchema=Yup.object().shape({
+        nom:Yup.string().required(),
+        prenom:Yup.string().required(),
+        email:Yup.string().required(),
+        password:Yup.string().required().matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,"Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character!")
+    })
 
     return (
         <Formik
@@ -87,7 +92,7 @@ export default function FormulaireSouscription(props:PropsState) {
                         onChange={handleChange} 
                         placeHolder="Password" 
                         className="bg-gray-200 font-bold appearance-none border-2 border-gray-200 rounded w-full py-2 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"  
-                        type="text" 
+                        type="password" 
                         component={INPUTCustom} />
                     <div className="text-red-500 font-bold">
                         <ErrorMessage  name="password"/>

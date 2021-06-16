@@ -5,13 +5,16 @@ import App from './App';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { store } from './store';
+import { ToastProvider } from 'react-toast-notifications';
 
 ReactDOM.render(
-  <React.StrictMode>
+ 
     <Provider store={store}>
-      <App />
+      <ToastProvider>
+        <App />
+      </ToastProvider>
     </Provider>
-  </React.StrictMode>,
+  ,
   document.getElementById('root')
 );
 

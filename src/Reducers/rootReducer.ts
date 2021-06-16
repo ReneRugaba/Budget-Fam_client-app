@@ -5,6 +5,7 @@ import { idReducer } from './IdReducer';
 import { nomReducer } from './NomReducer';
 import { roleReducer } from './RoleReducer';
 import { tokenReducer } from './TokenReducer';
+import { prenomReducer } from './PrenomReducer';
 
 
 export const rootReducer=combineReducers({
@@ -12,7 +13,8 @@ export const rootReducer=combineReducers({
     idReducer,
     nomReducer,
     roleReducer,
-    tokenReducer
+    tokenReducer,
+    prenomReducer
 }
 )
 
