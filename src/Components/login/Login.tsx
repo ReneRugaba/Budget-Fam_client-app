@@ -16,6 +16,7 @@ import { roleAction } from './../../actions/roleAction';
 import { useHistory } from 'react-router-dom';
 import { prenomAction } from './../../actions/prenomAction';
 import { configUrl } from './../../Config/configUrl';
+import { sexeMemberAction } from './../../actions/sexeMemberAction';
 
 
 export interface SubmitCenterValues{
@@ -52,8 +53,10 @@ export default function Login() {
                                             dispatch(prenomAction(user.prenom))
                                             dispatch(nomAction(user.nom))
                                             dispatch(roleAction(user.roles[0]))
+                                            dispatch(sexeMemberAction(user.sexe))
+                                           
                                             history.push("/accueil")
-                                            addToast("Connexion réssit!",
+                                            addToast("Connexion réussit!",
                                                 {
                                                     appearance: 'success',
                                                     autoDismiss: true,

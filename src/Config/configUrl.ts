@@ -4,6 +4,7 @@ export const configUrl={
             get:"/api/members",
             authentication_token:"/authentication_token"
         },
-        pageConnect:"/"
+        pageConnect:"/",
+        urlBase:"http://localhost:8000/"
     }
 }

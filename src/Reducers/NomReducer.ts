@@ -1,6 +1,6 @@
 
 
-interface Nom{
+export interface Nom{
     nom:string
 }
 

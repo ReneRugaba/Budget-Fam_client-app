@@ -1,7 +1,7 @@
 
 
 
-interface Email{
+export interface Email{
     email:string|undefined
 }
 

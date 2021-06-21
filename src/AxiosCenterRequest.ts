@@ -5,7 +5,7 @@ import { configUrl } from './Config/configUrl';
 
 
 const apiBackEnd= axios.create({
-    baseURL:"http://localhost:8000/"
+    baseURL:configUrl.request.urlBase
 })
 
 apiBackEnd.interceptors.response.use(

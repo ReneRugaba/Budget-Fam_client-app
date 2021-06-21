@@ -9,18 +9,27 @@ import { idAction } from './../actions/idAction';
 import { nomAction } from './../actions/nomAction';
 import { roleAction } from './../actions/roleAction';
 import "./component.css"
+import { prenomAction } from './../actions/prenomAction';
+import { useToasts } from 'react-toast-notifications';
 
 export default function RouterNavigation() {
     const {tokenReducer,idReducer,roleReducer}=useSelector((state:RootState)=>state)
-   
+    const {addToast}=useToasts()
     const Dispatch=useDispatch()
 
     const logout=()=>{
-        Dispatch(tokenAction(null))
+        Dispatch(tokenAction(""))
         Dispatch(emailAction(null))
         Dispatch(idAction(null))
         Dispatch(nomAction(null))
-        Dispatch(roleAction(null))
+        Dispatch(roleAction(""))
+        Dispatch(prenomAction(""))
+        addToast("Deconnexion effective!",
+            {
+                appearance: 'info',
+                autoDismiss: true,
+            }
+        )
     }
         return (
         <div>
